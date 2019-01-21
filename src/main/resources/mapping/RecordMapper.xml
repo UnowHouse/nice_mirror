@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhu.dao.RecordMapper" >
+    <insert id="insertRecord" parameterType="com.zhu.entity.Record">
+        INSERT INTO tb_record(`name`,`gender`,`beauty`,`is_show`,`detect_time`,`face_file`)
+        VALUES (#{record.name},#{record.gender},#{record.beauty},#{record.isShow},#{record.detectTime},#{record.faceFile})
+    </insert>
+    <select id="selectRecordsTopFive" resultType="com.zhu.entity.Record">
+        SELECT * FROM tb_record ORDER BY beauty DESC LIMIT 5
+    </select>
+
+</mapper>
